@@ -1,12 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useRole } from '../context/useRoleHook';
 
 /**
  * Header Component
  * Main navigation header for the application
- * Shows logo and navigation links
+ * Shows logo and navigation links based on user role
  */
 const Header = () => {
   const location = useLocation();
+  const { currentUser } = useRole();
 
   // Check if current path matches the link
   const isActive = (path) => location.pathname === path;
@@ -59,16 +61,48 @@ const Header = () => {
             >
               Hackathons
             </Link>
-            <Link 
-              to="/dashboard" 
-              className={`${
-                isActive('/dashboard') || location.pathname.startsWith('/dashboard')
-                  ? 'text-blue-600 border-b-2 border-blue-600' 
-                  : 'text-gray-700 hover:text-blue-600'
-              } px-1 pb-1 transition-colors duration-200`}
-            >
-              Dashboard
-            </Link>
+
+            {/* Student Dashboard */}
+            {currentUser.role === 'student' && (
+              <Link 
+                to="/dashboard" 
+                className={`${
+                  isActive('/dashboard') || location.pathname.startsWith('/dashboard')
+                    ? 'text-blue-600 border-b-2 border-blue-600' 
+                    : 'text-gray-700 hover:text-blue-600'
+                } px-1 pb-1 transition-colors duration-200`}
+              >
+                Dashboard
+              </Link>
+            )}
+
+            {/* Admin Dashboards */}
+            {currentUser.role === 'admin' && (
+              <Link 
+                to="/admin/class" 
+                className={`${
+                  isActive('/admin/class') || location.pathname.startsWith('/admin/class')
+                    ? 'text-blue-600 border-b-2 border-blue-600' 
+                    : 'text-gray-700 hover:text-blue-600'
+                } px-1 pb-1 transition-colors duration-200`}
+              >
+                Admin Dashboard
+              </Link>
+            )}
+
+            {/* Developer/Super Admin Dashboards */}
+            {(currentUser.role === 'developer' || currentUser.role === 'super_admin') && (
+              <Link 
+                to="/admin/dashboard" 
+                className={`${
+                  isActive('/admin/dashboard') || location.pathname.startsWith('/admin/dashboard')
+                    ? 'text-blue-600 border-b-2 border-blue-600' 
+                    : 'text-gray-700 hover:text-blue-600'
+                } px-1 pb-1 transition-colors duration-200`}
+              >
+                Admin Dashboard
+              </Link>
+            )}
           </nav>
 
           {/* Auth Buttons */}
@@ -112,16 +146,48 @@ const Header = () => {
           >
             Hackathons
           </Link>
-          <Link 
-            to="/dashboard" 
-            className={`${
-              location.pathname.startsWith('/dashboard')
-                ? 'bg-blue-50 text-blue-600' 
-                : 'text-gray-700 hover:bg-gray-50'
-            } block px-3 py-2 rounded-md text-base font-medium`}
-          >
-            Dashboard
-          </Link>
+
+          {/* Student Dashboard */}
+          {currentUser.role === 'student' && (
+            <Link 
+              to="/dashboard" 
+              className={`${
+                location.pathname.startsWith('/dashboard')
+                  ? 'bg-blue-50 text-blue-600' 
+                  : 'text-gray-700 hover:bg-gray-50'
+              } block px-3 py-2 rounded-md text-base font-medium`}
+            >
+              Dashboard
+            </Link>
+          )}
+
+          {/* Admin Dashboards */}
+          {currentUser.role === 'admin' && (
+            <Link 
+              to="/admin/class" 
+              className={`${
+                location.pathname.startsWith('/admin/class')
+                  ? 'bg-blue-50 text-blue-600' 
+                  : 'text-gray-700 hover:bg-gray-50'
+              } block px-3 py-2 rounded-md text-base font-medium`}
+            >
+              Admin Dashboard
+            </Link>
+          )}
+
+          {/* Developer/Super Admin Dashboards */}
+          {(currentUser.role === 'developer' || currentUser.role === 'super_admin') && (
+            <Link 
+              to="/admin/dashboard" 
+              className={`${
+                location.pathname.startsWith('/admin/dashboard')
+                  ? 'bg-blue-50 text-blue-600' 
+                  : 'text-gray-700 hover:bg-gray-50'
+              } block px-3 py-2 rounded-md text-base font-medium`}
+            >
+              Admin Dashboard
+            </Link>
+          )}
         </div>
       </div>
     </header>

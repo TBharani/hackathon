@@ -307,3 +307,142 @@ export const allHackathons = [
     participants: "1500"
   }
 ];
+
+// Classes Available in College
+export const availableClasses = [
+  // CSE
+  { department: "CSE", year: "1st Year", section: "A" },
+  { department: "CSE", year: "1st Year", section: "B" },
+  { department: "CSE", year: "2nd Year", section: "A" },
+  { department: "CSE", year: "2nd Year", section: "B" },
+  { department: "CSE", year: "3rd Year", section: "A" },
+  { department: "CSE", year: "3rd Year", section: "B" },
+  { department: "CSE", year: "4th Year", section: "A" },
+  { department: "CSE", year: "4th Year", section: "B" },
+
+  // IT
+  { department: "IT", year: "1st Year", section: "A" },
+  { department: "IT", year: "2nd Year", section: "A" },
+  { department: "IT", year: "3rd Year", section: "A" },
+  { department: "IT", year: "4th Year", section: "A" },
+
+  // ECE
+  { department: "ECE", year: "1st Year", section: "A" },
+  { department: "ECE", year: "1st Year", section: "B" },
+  { department: "ECE", year: "2nd Year", section: "A" },
+  { department: "ECE", year: "2nd Year", section: "B" },
+  { department: "ECE", year: "3rd Year", section: "A" },
+  { department: "ECE", year: "4th Year", section: "A" },
+
+  // CIVIL
+  { department: "CIVIL", year: "1st Year", section: "A" },
+  { department: "CIVIL", year: "2nd Year", section: "A" },
+  { department: "CIVIL", year: "3rd Year", section: "A" },
+  { department: "CIVIL", year: "4th Year", section: "A" },
+];
+
+// Students in each class (for Admin Dashboard)
+export const studentsByClass = {
+  "CSE-3rd-A": [
+    { registerNumber: "21CS001", name: "Rajesh Kumar", email: "rajesh@college.edu" },
+    { registerNumber: "21CS002", name: "Priya Sharma", email: "priya@college.edu" },
+    { registerNumber: "21CS003", name: "Amit Singh", email: "amit@college.edu" },
+    { registerNumber: "21CS004", name: "Sneha Gupta", email: "sneha@college.edu" },
+    { registerNumber: "21CS005", name: "Arjun Patel", email: "arjun@college.edu" },
+  ],
+  "IT-2nd-A": [
+    { registerNumber: "22IT001", name: "Deepak Verma", email: "deepak@college.edu" },
+    { registerNumber: "22IT002", name: "Aisha Khan", email: "aisha@college.edu" },
+    { registerNumber: "22IT003", name: "Rohan Das", email: "rohan@college.edu" },
+  ],
+  "CSE-4th-C": [
+    { registerNumber: "20CS101", name: "Kavya Reddy", email: "kavya@college.edu" },
+    { registerNumber: "20CS102", name: "Ankit Joshi", email: "ankit@college.edu" },
+    { registerNumber: "20CS103", name: "Nina Chopra", email: "nina@college.edu" },
+    { registerNumber: "20CS104", name: "Vikram Singh", email: "vikram@college.edu" },
+  ],
+  "ECE-3rd-B": [
+    { registerNumber: "21EC001", name: "Sanjana Nair", email: "sanjana@college.edu" },
+    { registerNumber: "21EC002", name: "Harshit Malhotra", email: "harshit@college.edu" },
+  ],
+};
+
+// Hackathon Participation by Class (for Admin/Developer dashboard)
+export const hackathonParticipation = [
+  {
+    hackathonId: 101,
+    hackathonName: "Smart India Hackathon 2024 - Finals",
+    totalTeams: 15,
+    totalStudents: 45,
+    byClass: {
+      "CSE-3rd-A": { teams: 3, students: 9 },
+      "IT-2nd-A": { teams: 2, students: 6 },
+      "CSE-4th-C": { teams: 4, students: 12 },
+      "ECE-3rd-B": { teams: 1, students: 3 },
+      "Other": { teams: 5, students: 15 },
+    },
+    groupVsIndividual: {
+      groupParticipation: 12,
+      individualParticipation: 3,
+    },
+  },
+  {
+    hackathonId: 102,
+    hackathonName: "HackNITR 5.0",
+    totalTeams: 20,
+    totalStudents: 60,
+    byClass: {
+      "CSE-3rd-A": { teams: 4, students: 12 },
+      "IT-2nd-A": { teams: 3, students: 9 },
+      "CSE-4th-C": { teams: 5, students: 15 },
+      "ECE-3rd-B": { teams: 2, students: 6 },
+      "Other": { teams: 6, students: 18 },
+    },
+    groupVsIndividual: {
+      groupParticipation: 18,
+      individualParticipation: 2,
+    },
+  },
+  {
+    hackathonId: 103,
+    hackathonName: "Google Cloud Innovator Challenge",
+    totalTeams: 25,
+    totalStudents: 75,
+    byClass: {
+      "CSE-3rd-A": { teams: 5, students: 15 },
+      "IT-2nd-A": { teams: 2, students: 6 },
+      "CSE-4th-C": { teams: 6, students: 18 },
+      "ECE-3rd-B": { teams: 3, students: 9 },
+      "Other": { teams: 9, students: 27 },
+    },
+    groupVsIndividual: {
+      groupParticipation: 22,
+      individualParticipation: 3,
+    },
+  },
+];
+
+// Email Alert Logs (for Admin/Developer dashboard simulation)
+export const emailAlertLogs = [
+  {
+    id: 1,
+    eventName: "Smart India Hackathon 2024 - Finals",
+    appliedCount: 45,
+    sentAt: "2024-04-10 10:30 AM",
+    status: "Sent",
+  },
+  {
+    id: 2,
+    eventName: "HackNITR 5.0",
+    appliedCount: 60,
+    sentAt: "2024-04-08 09:15 AM",
+    status: "Sent",
+  },
+  {
+    id: 3,
+    eventName: "Google Cloud Innovator Challenge",
+    appliedCount: 75,
+    sentAt: "2024-04-05 02:45 PM",
+    status: "Sent",
+  },
+];
